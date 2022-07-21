@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AddCategory } from './components/AddCategory';
 
 export const GifExpertApp = () => {
-    const [categories, setCategories] = useState(['The Fast and the Furious', 'K series']);
+    const [categories, setCategories] = useState(['The Fast and the Furious', 'K series', 'Xiaomi']);
 
     const handleAddCategory = (value) => {
         if (categories.includes(value)) return;
