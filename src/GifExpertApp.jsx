@@ -1,23 +1,23 @@
 import { useState } from 'react';
-import { AddCategory } from './components/AddCategory';
+import { AddCategory,  GifGrid } from './components';
 
 export const GifExpertApp = () => {
-    const [categories, setCategories] = useState(['The Fast and the Furious', 'K series', 'Xiaomi']);
+    const [categories, setCategories] = useState(['The Fast and the Furious', 'Honda Cars']);
 
     const handleAddCategory = (value) => {
         if (categories.includes(value)) return;
-        setCategories([...categories, value]);
+        setCategories([value, ...categories]);
     };
 
     return (
         <>
             <h1>GifExpertApp</h1>
             <AddCategory onNewCategory = { handleAddCategory } />
-            <ol>
-                {
-                    categories.map((category) => <li key={category}> {category} </li>)
-                }
-            </ol>
+            {
+                categories.map((category) => (
+                    <GifGrid key={category} category={category} />
+                ))
+            }
         </>
     )
 }
